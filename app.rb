@@ -3,7 +3,6 @@ require_relative 'dedup'
 set :logging, :true
 
 get '/' do
-  p "yoohoo"
   erb :index
 end
 
