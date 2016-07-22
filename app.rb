@@ -1,5 +1,5 @@
 require 'sinatra'
-require_relative 'dedup'
+require_relative 'deduper'
 set :logging, :true
 
 get '/' do
@@ -7,8 +7,8 @@ get '/' do
 end
 
 post '/' do
-  array = request['data'].split(/\s*/)
-  @dedup = Dedup.dedup(array).join("<br />")
+  array = request['data'].split(/\s+/)
+  @dedup = Deduper.dedup(array).join("<br />")
 
   erb :response
 end
